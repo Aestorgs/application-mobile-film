@@ -8,9 +8,9 @@ Durée : 1 semaine ,
 
 Taches réalisées : Aestorgs ,
 
-Technos utilisées : React-native , expo , sql 
+Technos utilisées : React-native , expo , sqlite 
 
-Outils et ressources : React-native , expo , sql 
+Outils et ressources : React-native , expo , sqlite
 
 # Installation
 
