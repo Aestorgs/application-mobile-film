@@ -3,6 +3,7 @@ import React from "react";
 import { Button, FlatList, Image, StyleSheet, Text, View } from "react-native";
 import MaterialIcons from "react-native-vector-icons/AntDesign";
 
+// affichage de favoris pour un film 
 export const Favoris = () => {
   const db = SQlite.openDatabase("database.db");
   const [favoris, useFavoris] = React.useState([]);

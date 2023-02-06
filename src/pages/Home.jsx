@@ -9,6 +9,8 @@ import {
   View,
 } from "react-native";
 
+//affichage de l'accueil 
+
 import { TouchableOpacity } from "react-native";
 
 export const Home = ({ navigation, item }) => {

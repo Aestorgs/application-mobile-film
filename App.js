@@ -6,6 +6,7 @@ import MaterialIcons from 'react-native-vector-icons/AntDesign'
 import { Details } from "./src/pages/Details";
 import { Favoris } from "./src/pages/Favoris";
 
+// utilisation des routes 
 const Stack = createNativeStackNavigator();
 
 export default function App() {

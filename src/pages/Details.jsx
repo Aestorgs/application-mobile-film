@@ -3,6 +3,8 @@ import { Button, Image, ScrollView, StyleSheet, Text } from "react-native";
 import MaterialIcons from "react-native-vector-icons/AntDesign";
 import * as SQlite from "expo-sqlite";
 
+// affichage pour le details d'un film
+
  const db = SQlite.openDatabase("database.db");
 
 export const Details = ({ route }) => {
