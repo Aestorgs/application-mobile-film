@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Home } from "./src/pages/Home";
+import MaterialIcons from 'react-native-vector-icons/AntDesign'
+import { Details } from "./src/pages/Details";
+import { Favoris } from "./src/pages/Favoris";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home}
+      options={({navigation }) => ({
+        headerRight : () => <MaterialIcons name="hearto" size={30} color={"555"} onPress={() => navigation.navigate('Favoris' ,  {})}/>
+       })}
+      />
+      <Stack.Screen
+          name="Details"
+          component={Details}
+        />
+         <Stack.Screen
+          name="Favoris"
+          component={Favoris}
+        />
+    </Stack.Navigator>
+    <StatusBar style="auto" />
+  </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
