@@ -5,7 +5,7 @@ import * as SQlite from "expo-sqlite";
 
 // affichage pour le details d'un film
 
- const db = SQlite.openDatabase("database.db");
+const db = SQlite.openDatabase("database.db");
 
 export const Details = ({ route }) => {
   const { item } = route.params;
@@ -23,12 +23,9 @@ export const Details = ({ route }) => {
 
   React.useEffect(() => {
     db.transaction((tx) =>
-      tx.executeSql(
-        "CREATE TABLE favo (idShow int(100) NOT NULL)"
-      )
+      tx.executeSql("CREATE TABLE favo (idShow int(100) NOT NULL)")
     );
   });
-
 
   const handleAdd = () => {
     db.transaction((tx) =>
@@ -45,6 +42,10 @@ export const Details = ({ route }) => {
     );
   };
 
+  const sanitizedSummary = detail.summary
+    ? detail.summary.replace(/<\/?p>|<\/?b>/g, "")
+    : "";
+
   return (
     <ScrollView>
       <Image
@@ -57,17 +58,17 @@ export const Details = ({ route }) => {
       />
       <Text style={styles.titre}> Titre : {detail.name}</Text>
       <MaterialIcons
-      onPress={handleAdd}
+        onPress={handleAdd}
         style={{ marginLeft: 180 }}
         name="hearto"
         size={30}
         color={"555"}
       >
-        <Button title="" ></Button>
+        <Button title=""></Button>
       </MaterialIcons>
       {<Text style={styles.notes}> Notes : {detail.rating?.average} / 10</Text>}
       {<Text style={styles.genres}> Types : {detail.genres}</Text>}
-      {<Text style={styles.p}>{detail.summary}</Text>}
+      {<Text style={styles.p}>{sanitizedSummary}</Text>}
     </ScrollView>
   );
 };

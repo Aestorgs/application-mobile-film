@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 
-//affichage de l'accueil 
+//affichage de l'accueil
 
 import { TouchableOpacity } from "react-native";
 
